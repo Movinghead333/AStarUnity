@@ -15,31 +15,38 @@ public class Pixel : MonoBehaviour
     TextMeshProUGUI minimumPathLengthText;
 
     public bool isObstacle = false;
+    public float gCost;
+    public float hCost;
+    public float fCost;
 
-    void setCurrent(double current)
+    public int x;
+    public int y;
+
+    public Pixel predecessor;
+
+    public void setCurrent(double current)
     {
-        currentPathLengthText.SetText(current.ToString());
+        currentPathLengthText.SetText("G(p): " + current.ToString());
     }
 
-    void setEstimated(double estimated)
+    public void setEstimated(double estimated)
     {
-        estimatedPathLengthText.SetText(estimated.ToString());
+        estimatedPathLengthText.SetText("H(p): " + estimated.ToString());
     }
 
-    void setEstimated2(double estimated2)
+    public void setEstimated2(double estimated2)
     {
         estimatedPathLength2Text.SetText(estimated2.ToString());
     }
 
-    void setMinimum(double minimum)
+    public void setMinimum(double minimum)
     {
-        minimumPathLengthText.SetText(minimum.ToString());
+        minimumPathLengthText.SetText("F(p): " + minimum.ToString());
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        setMinimum(90.34);
     }
 
     // Update is called once per frame
